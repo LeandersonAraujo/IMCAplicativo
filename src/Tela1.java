@@ -30,6 +30,8 @@ public class Tela1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -39,23 +41,53 @@ public class Tela1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(59, 89, 152));
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Calcular IMC");
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Massa(KG):");
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Altura(m):");
 
         campoAltura.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        campoAltura.setForeground(new java.awt.Color(51, 51, 51));
 
+        campoMassa.setBackground(new java.awt.Color(240, 240, 240));
         campoMassa.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        campoMassa.setForeground(new java.awt.Color(51, 51, 51));
 
         campoResultado.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        campoResultado.setForeground(new java.awt.Color(51, 51, 51));
         campoResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoResultadoActionPerformed(evt);
@@ -63,9 +95,12 @@ public class Tela1 extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Seu IMC:");
 
+        btnCalcular.setBackground(new java.awt.Color(76, 175, 80));
         btnCalcular.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btnCalcular.setForeground(new java.awt.Color(51, 51, 51));
         btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +170,7 @@ public class Tela1 extends javax.swing.JFrame {
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         double massa = Double.parseDouble(campoMassa.getText());
         double altura = Double.parseDouble(campoAltura.getText());
-        
+       
         double imc = massa /(altura * altura);
         
         DecimalFormat df = new DecimalFormat("##.##");
@@ -174,14 +209,6 @@ public class Tela1 extends javax.swing.JFrame {
                     "ATENÇÃO",
                     JOptionPane.ERROR_MESSAGE);
         }
-
-        //Se imc < 18.5
-//else if imc <= 24.9
-//else if imc <= 29.9
-//else if imc <= 34.9
-//else if imc <= 39.9
-//else if imc > 40
-
 
     }//GEN-LAST:event_btnCalcularActionPerformed
 
@@ -233,5 +260,7 @@ public class Tela1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
