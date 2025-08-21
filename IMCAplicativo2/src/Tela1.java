@@ -1,6 +1,5 @@
 
 import java.text.DecimalFormat;
-import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -39,9 +38,9 @@ public class Tela1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         campoAltura = new javax.swing.JTextField();
         campoMassa = new javax.swing.JTextField();
+        campoResultado = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
-        campoResultado = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,6 +87,14 @@ public class Tela1 extends javax.swing.JFrame {
         campoMassa.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         campoMassa.setForeground(new java.awt.Color(51, 51, 51));
 
+        campoResultado.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        campoResultado.setForeground(new java.awt.Color(51, 51, 51));
+        campoResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoResultadoActionPerformed(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Seu IMC:");
@@ -102,10 +109,6 @@ public class Tela1 extends javax.swing.JFrame {
             }
         });
 
-        campoResultado.setEditable(false);
-        campoResultado.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        campoResultado.setForeground(new java.awt.Color(51, 51, 51));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,30 +117,31 @@ public class Tela1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(btnCalcular)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addGap(14, 14, 14)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(14, 14, 14)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(campoAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoMassa, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(campoResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(60, 60, 60))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoMassa, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(campoResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(btnCalcular)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,68 +160,63 @@ public class Tela1 extends javax.swing.JFrame {
                 .addComponent(btnCalcular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(campoResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private Optional<Double> parseCampo(JTextField campo, String nomeCampo){
-        String texto = campo.getText().trim();
-        if (texto.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "O campo " + nomeCampo + " não pode estar vazio.");
-            return Optional.empty();
-        }
-        try {
-            double valor = Double.parseDouble(texto.replace(",", "."));
-            if (valor <= 0){
-                JOptionPane.showMessageDialog(this, "O campo " + nomeCampo + " deve ser maior que zero.");
-                return Optional.empty();
-            }
-            return Optional.of(valor);
-        } catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Digite um número válido para " + nomeCampo + ".");
-           return Optional.empty();
-        }
-    }
-    
-    private void mostrarMensagemIMC(double imc){
-        String mensagem;
-        int tipo = JOptionPane.INFORMATION_MESSAGE;
-        
-        if (imc < 18.5){
-            mensagem = "Você está abaixo peso ideal";        
-        } else if (imc <= 24.9) {
-           mensagem = "Parabéns você está no seu peso ideal!";
-        } else if (imc <= 29.9){
-            mensagem = "Você está com sobrepeso!";
-        } else if (imc <= 34.9){
-            mensagem = "Obesidade Grau I!";
-        } else if (imc <=39.9){
-            mensagem = "Obesidade Grau II!";
-        } else {
-            mensagem = "Obesidade Grau III!";
-        }
-        JOptionPane.showMessageDialog(this, mensagem, "Resultado do  IMC", tipo);
-    }
+
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        Optional<Double> massa = parseCampo(campoMassa, "Massa");
-        Optional <Double> altura = parseCampo(campoAltura, "Altura");
-        
-        if (massa.isEmpty() || altura.isEmpty()) return;
-        
-        double imc = massa.get() / (altura.get() * altura.get());
+
+        double massa = Double.parseDouble(campoMassa.getText());
+        double altura = Double.parseDouble(campoAltura.getText());
+       
+        double imc = massa /(altura * altura);
         
         DecimalFormat df = new DecimalFormat("##.##");
         String numeroFormatado = df.format(imc);
         
-        System.out.println("IMC calculado: " + imc);
-        
         campoResultado.setText(numeroFormatado);
-        mostrarMensagemIMC(imc);
+        
+        if (imc < 18.5){
+            JOptionPane.showMessageDialog(null,
+                    "Você está abaixo do peso ideal! \nConsidere melhorar sua alimentação.",
+                    "ATENÇÃO",
+                    JOptionPane.OK_OPTION);
+        } else if (imc >= 18.6 && imc <= 24.9) {
+            JOptionPane.showMessageDialog(null,
+                    "Parabéns você está no seu peso ideal! \nMantenha sua alimentação saudável.",
+                    "ATENÇÃO",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (imc >= 25 && imc <= 29.9){
+                        JOptionPane.showMessageDialog(null,
+                    "Você está na faixa de sobrepeso! \nConsidere melhorar sua alimentação.",
+                    "ATENÇÃO",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (imc >= 30 && imc <= 34.9){
+                        JOptionPane.showMessageDialog(null,
+                    "Você está na faixa de Obesidade Grau I! \nConsidere melhorar sua alimentação.",
+                    "ATENÇÃO",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (imc >= 35 && imc <=39.9){
+                        JOptionPane.showMessageDialog(null,
+                    "Você está na faixa de Obesidade Grau II! \nConsidere melhorar sua alimentação.",
+                    "ATENÇÃO",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (imc > 40) {
+                        JOptionPane.showMessageDialog(null,
+                    "Você está na faixa de Obesidade Grau III! \nConsidere melhorar sua alimentação.",
+                    "ATENÇÃO",
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void campoResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoResultadoActionPerformed
     
     /**
      * @param args the command line arguments
